@@ -1,0 +1,30 @@
+DROP DATABASE IF EXISTS longtest;
+Use Midtermlongtest
+
+CREATE TABLE Student(
+    StudFName varchar (50),
+    StudMName varchar (50),
+    Major varchar (50),
+    Gender ENUM("male","female"),
+    HomeAddress varchar (50)
+    
+CREATE TABLE Subject(
+    SubjectCode varchar PRIMARY KEY,
+    SubjectDescr varchar (50),
+    
+CREATE TABLE Grade(
+    StudNo varchar,
+    SubjectCode varchar(50),
+    Grade float,
+    CONSTRAINT GradeSNFK FOREIGN KEY (StudNo) REFERENCES student (StudNo)
+    CONSTRAINT GradeSNFK FOREIGN KEY (SubjectCode) REFERENCES subject (SubjectCode)
+
+//
+INSERT INTO student (StudNo , StudFName , StudLName, Major, Gender, HomeAddress)
+VALUES ('S-101' , 'Ana', 'Cruz' , 'ECE' , 'F' , 'Malolos,Bulacan');
+('S-101' , 'Hazel', 'Ponce' , 'COE' , 'F' , 'Plaridel,Bulacan');
+('S-101' , 'Cristov', 'Concio' , 'ECE' , 'M' , 'Malolos,Bulacan');
+('S-101' , 'Aris', 'Clavio' , 'COE' , 'M' , 'Pulilan,Bulacan');
+('S-101' , 'Honey', 'Pelayo' , 'COE' , 'F' , 'Plaridel,Bulacan');
+('S-101' , 'Carrie', 'Abao' , 'ECE' , 'F' , 'Pulilan,Bulacan');
+//
